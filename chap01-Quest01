@@ -1,0 +1,45 @@
+R-1.1 Write a short Java method, inputAllBaseTypes, that inputs a different value of
+each base type from the standard input device and prints it back to the standard
+output device.
+
+ANSWER:
+
+import java.util.Scanner;
+/**
+ *
+ * @author 4E_xcodings
+ */
+
+public class InputAllBaseTypes {
+    
+    public static void inputAllBaseTypes(){
+        
+        Scanner s = new Scanner(System.in);
+        
+        System.out.println("Please enter a Byte : ");
+        System.out.println("TIP: Remember a Byte is greater than -128 and less than 127.");
+            while(!s.hasNextByte()){
+            s.nextLine();
+            System.out.println("Wrong value, try again...");
+        }
+        System.out.println("That's right. " + s.nextLine() + " is a valid Byte literal.");
+        
+        System.out.println("Please enter an integer: ");
+        while(!s.hasNextInt()){
+            s.nextLine();
+            System.out.println("Wrong value, try again...");
+        }
+        System.out.println("That's right. " + s.nextLine() + " is a valid integer.");
+        
+        
+        /**
+         * Now you can copy and paste and edit the while statement for the remaining types. the logic is the same.
+         */
+        
+    }
+    
+    public static void main(String[] args){
+        
+        inputAllBaseTypes();
+    }
+}
