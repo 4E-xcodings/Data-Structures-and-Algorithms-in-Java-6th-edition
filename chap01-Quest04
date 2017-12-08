@@ -1,0 +1,29 @@
+/**
+ * Write a short Java method, isEven, that takes an int i and returns true if and only
+   if i is even. Your method cannot use the multiplication, modulus, or division
+   operators, however.
+ */
+
+// ANSWER:
+
+import java.util.Scanner;
+
+public class IsEven {
+    
+    public static void main(String[] args)
+    {
+        Scanner s = new Scanner(System.in);
+        System.out.println("Please, enter a valid number in order to me check if it's even number...");
+        while(!s.hasNextLong()){
+            s.nextLine();
+            System.out.println("Not a valid number. Try again...");
+        }
+        long i = s.nextLong();
+        if((i&1) != 0){
+            System.out.println("This is an odd number, try again.");
+        }else{
+            System.out.println("That's a even number, great!");
+        }
+        
+    }
+}
