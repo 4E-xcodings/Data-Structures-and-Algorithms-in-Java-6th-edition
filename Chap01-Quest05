@@ -1,0 +1,33 @@
+/*
+ * Write a short Java method that takes an integer n and returns the sum of all
+ * positive integers less than or equal to n
+ * 
+ * 
+ */
+
+// ANSWER
+
+import java.util.Scanner;
+
+public class IntSum {
+    
+    public static int sum(int n){
+        
+        int control = 1;
+        int total = 0;
+        while(control <= n){
+            total += control++;
+        }
+        return total;
+    }
+    
+    public static void main(String[] args){
+        
+        Scanner s = new Scanner(System.in);
+        System.out.println("Enter an integer: ");
+        int i = sum(s.nextInt());
+        
+        System.out.println("The sum of all numbers igual or less than the number just entered is: " + i);
+        
+    }
+}

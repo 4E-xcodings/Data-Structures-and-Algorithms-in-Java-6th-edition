@@ -1,0 +1,34 @@
+/*
+ * Write a short Java method that takes an integer n and returns the sum of all the
+ * odd positive integers less than or equal to n.
+ */
+
+// ANSWER :
+
+import java.util.Scanner;
+
+public class OddSum {
+    
+    public static int oddSum(int n){
+        int control = 1;
+        int total = 0;
+        
+        while(control <= n){
+            total += control;
+            control += 2;
+        }
+        return total;
+    }
+    
+    public static void main(String[] args){
+        Scanner s = new Scanner(System.in);
+        System.out.println("Please, enter an integer to sum all odd numbers less or equal.");
+        while(!s.hasNextInt())
+        {
+            s.nextLine();
+            System.out.println("Wrong value. Try again...");
+        }
+        
+        System.out.println("The sum is: " + oddSum(s.nextInt()));
+    }
+}

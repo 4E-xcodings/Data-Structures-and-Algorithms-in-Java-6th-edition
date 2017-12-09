@@ -1,0 +1,41 @@
+/**
+ * Write a short Java method, isMultiple, that takes two long values, n and m, and
+ * returns true if and only if n is a multiple of m, that is, n = mi for some integer i.
+ * 
+ */
+
+// ANSWER
+
+import java.util.Scanner;
+
+public class Mutiple 
+{
+    public static boolean isMultiple(long n, long m)
+    {
+        if(n%m == 0)
+        {
+            return true;
+        }
+        return false;
+    }
+    
+    public static void main(String[] args)
+    {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter a long: ");
+        long n = input.nextLong();
+        System.out.println("Enter another long: ");
+        long m = input.nextLong();
+        
+        boolean x = Mutiple.isMultiple(n, m);
+        
+        if(x == true)
+        {
+            System.out.println(n + " is multiple of " + m);
+        }
+        else
+        {
+            System.out.println(n + " isn't multiple of " + m);
+        }
+    }
+}
