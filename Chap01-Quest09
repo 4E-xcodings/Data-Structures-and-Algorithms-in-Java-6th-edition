@@ -1,0 +1,32 @@
+/*
+ *Write a short Java method that uses a StringBuilder instance to remove all the
+ *punctuation from a string s storing a sentence, for example, transforming the
+ *string "Let’s try, Mike!" to "Lets try Mike".
+ */
+
+ // ANSWER
+ 
+import java.util.Scanner;
+
+public class RemovePunctuation {
+    
+    public static StringBuilder removePunc(StringBuilder s){
+        
+        for(int x = s.length()-1; x >= 0; x--){
+            
+            char c = s.charAt(x);
+            if(c == '.' | c == ',' | c == ';' | c == ':' | c == '\'' | c == '!' | c == '?' | c == '-'){
+                s.deleteCharAt(x);
+            }   
+        }
+    return s;
+    }
+    
+    public static void main(String[] args){
+        
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter a string of characters to remove punctuation.");
+        StringBuilder myString = new StringBuilder(input.nextLine());
+        System.out.println(removePunc(myString));
+    }
+}
