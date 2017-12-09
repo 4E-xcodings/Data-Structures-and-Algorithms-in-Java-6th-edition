@@ -10,20 +10,25 @@ import java.util.Scanner;
 
 public class IsEven {
     
+    public static boolean isEven(int i)
+    {
+        if((i&1) != 0){
+            return false;
+        }else{
+            return true;
+        }
+    }
+            
     public static void main(String[] args)
     {
         Scanner s = new Scanner(System.in);
         System.out.println("Please, enter a valid number in order to me check if it's even number...");
-        while(!s.hasNextLong()){
+        while(!s.hasNextInt()){
             s.nextLine();
             System.out.println("Not a valid number. Try again...");
         }
-        long i = s.nextLong();
-        if((i&1) != 0){
-            System.out.println("This is an odd number, try again.");
-        }else{
-            System.out.println("That's a even number, great!");
-        }
+                
+        System.out.println("Is the number even? " + isEven(s.nextInt()));
         
     }
 }
