@@ -1,0 +1,91 @@
+Write a pseudocode description of a method that reverses an array of n integers,
+so that the numbers are listed in the opposite order than they were before, and
+compare this method to an equivalent Java method for doing the same thing.
+
+
+
+(1)PSEUDOCODE
+
+class ReverseArray
+	static method array[] of integer reverse(y array[] of integer)
+		
+		x array[] of integer = y
+		var temp of integer
+
+		if((x length % 2) equals 0) then
+			for (control = 0; control < (x legnth/2); increment control by 1)
+				temp = x[control]
+				x[control] = x[x length - (control + 1)]
+				x[x length - (control + 1)] = temp
+				END FOR
+		else
+			for (control = 0; control < ((x length - 1) / 2); increment control by 1)
+				temp = x[control]
+				x[control] = x[x length - (control + 1)]
+				x[x length - (control + 1)] = temp
+				END FOR
+
+	return x
+	END METHOD
+END CLASS
+
+
+
+
+
+(2)JAVA CODE
+
+import java.util.Scanner;
+
+public class ReverseArray {
+    public static int[] reverse(int[] y){
+        
+        int[] x = y.clone();
+        int temp;
+       
+        if((x.length % 2) == 0){
+            for(int control = 0; control < (x.length/2); control++ ){
+                temp = x[control];
+                x[control] = x[x.length - (control+1)];
+                x[x.length - (control+1)] = temp;
+            }
+        }
+        else{
+            for(int control = 0; control < ((x.length-1)/2); control++ ){
+                temp = x[control];
+                x[control] = x[x.length - (control+1)];
+                x[x.length - (control+1)] = temp;
+            }
+        }
+        return x;
+    }
+    
+    public static void main(String[] args){
+       
+        Scanner s = new Scanner(System.in);
+        
+        System.out.println("Enter the maximum size of your array...");
+        while(!s.hasNextInt()){
+            s.nextLine();
+            System.out.println("Wrong value, try again...");
+        }
+        int total = s.nextInt();
+        
+        int[] myArray = new int[total];
+        
+        for(int control = 0; control < myArray.length; control++){
+            myArray[control] = (int) (Math.random()*10);
+            System.out.println(myArray[control]);
+        }
+        
+        int[] result = reverse(myArray);
+        
+        System.out.println("The reversed array...");
+        for(int control = 0; control < result.length; control++)
+        {
+            System.out.println(result[control]);
+        }
+        
+    }
+            
+}
