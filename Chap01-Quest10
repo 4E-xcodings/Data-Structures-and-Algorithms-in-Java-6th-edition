@@ -1,0 +1,41 @@
+/*
+ * Write a Java class, Flower, that has three instance variables of type String, int,
+ * and float, which respectively represent the name of the flower, its number of
+ * petals, and price. Your class must include a constructor method that initializes
+ * each variable to an appropriate value, and your class should include methods for
+ * setting the value of each type, and getting the value of each type.
+ */
+
+// ANSWER
+
+public class Flower {
+    
+    private String name;
+    private int petals;
+    private float price;
+    
+    public Flower(String name, int petals, float price){
+        this.name = name;
+        this.petals = petals;
+        this.price = price;
+    }
+    
+    public void setName(String name){
+        this.name = name;
+    }
+    public void setPetals(int petals){
+        this.petals = petals;
+    }
+    public void setPrice(float price){
+        this.price = price;
+    }
+    public String getName(){
+        return this.name;
+    }
+    public int getPetals(){
+        return this.petals;
+    }
+    public float getPrice(){
+        return this.price;
+    }
+}
