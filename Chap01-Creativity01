@@ -6,8 +6,8 @@ compare this method to an equivalent Java method for doing the same thing.
 
 (1)PSEUDOCODE
 
-class ReverseArray
-	static method array[] of integer reverse(y array[] of integer)
+
+	algorithm reverse(y array[] of integer)
 		
 		x array[] of integer = y
 		var temp of integer
@@ -27,7 +27,7 @@ class ReverseArray
 
 	return x
 	END METHOD
-END CLASS
+
 
 
 
