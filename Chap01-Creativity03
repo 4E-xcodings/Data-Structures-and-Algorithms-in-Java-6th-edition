@@ -1,0 +1,60 @@
+/*
+ * Write a short programthat takes as input three integers, a, b, and c, from the Java
+ * console and determines if they can be used in a correct arithmetic formula (in the
+ * given order), like “a+b= c,” “a = b−c,” or “a∗b= c.”
+ */
+
+
+// ANSWER
+
+import java.util.Scanner;
+
+public class CheckArithmeticFormula {
+
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+
+        System.out.println("Plese enter three integers to check...");
+        int[] values = new int[3];
+
+        for (int control = 0; control < 3; control++) {
+            while (!s.hasNextInt()) {
+                s.nextLine();
+                System.out.println("Wrong value, please enter a valid integer.");
+            }
+            values[control] = s.nextInt();
+        }
+
+        System.out.println(checkFormula(values[0], values[1], values[2]));
+
+    }
+
+    static String checkFormula(int a, int b, int c) {
+        if ((a + b) == c) {
+            return "There is a match: " + a + " + " + b + " = " + c;
+        } 
+        else if (a == (b + c)) {
+            return "There is a match: " + a + " = " + b + " + " + c;
+        }
+        if ((a - b) == c) {
+            return "There is a match: " + a + " - " + b + " = " + c;
+        } 
+        else if (a == (b - c)) {
+            return "There is a match: " + a + " = " + b + " - " + c;
+        }
+        if ((a / b) == c) {
+            return "There is a match: " + a + " / " + b + " = " + c;
+        } 
+        else if (a == (b / c)) {
+            return "There is a match: " + a + " = " + b + " / " + c;
+        } 
+        else if ((a * b) == c) {
+            return "There is a match: " + a + " * " + b + " = " + c;
+        } 
+        else if (a == (b * c)) {
+            return "There is a match: " + a + " = " + b + " * " + c;
+        }
+
+        return "No Match.";
+    }
+}
