@@ -1,0 +1,42 @@
+/*
+ *For the special case of p = 2, this results in the traditional Euclidean norm,
+which represents the length of the vector. For example, the Euclidean norm
+of a two-dimensional vector with coordinates (4,3) has a Euclidean norm of
+√ 4 2 +3 2 = √ 16+9 = √ 25 = 5. Give an implementation of a method named
+norm such that norm(v, p) returns the p-normvalue of v and norm(v) returns the
+Euclidean norm of v, where v is represented as an array of coordinates.
+ */
+
+// ANSWER
+
+public class EuclideanNorm {
+    
+    public static void main(String[] args){
+        int[] test = {3, 4, 5, 6};
+        System.out.println(norm(test, 7));
+    }
+    
+    static double norm(int[] v){
+        double res = 0;
+        for(int i  = 0; i < v.length; i++){
+            res += v[i]*v[i];
+        }
+        return Math.sqrt(res);
+    }
+    
+    static double norm(int[] v, int p){
+        
+        double temp = 1;
+        double res = 0;
+        
+        for(int i  = 0; i < v.length; i++){
+            for(int i1 = 0; i1 < p; i1++){
+                temp *= v[i];
+            }
+            res += temp;
+            temp = 1;
+        }
+        return Math.pow(res, 1.0/p);
+        
+    }
+}
