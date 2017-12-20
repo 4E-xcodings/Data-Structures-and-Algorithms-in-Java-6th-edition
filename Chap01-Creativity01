@@ -26,6 +26,7 @@ compare this method to an equivalent Java method for doing the same thing.
 				END FOR
 
 	return x
+	
 	END METHOD
 
 
