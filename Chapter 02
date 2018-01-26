@@ -26,6 +26,19 @@ public boolean charge(double price) {
   return isSuccess;
 }
 
+>Afeter the limit is reached this approach will cause the recursive charge to execute forever.
+"super.charge(price);" will always return false.
+
+R-2.5 Assume that we change the CreditCard class (see Code Fragment 1.5) so that
+instance variable balance has private visibility. Why is the following implementation of the PredatoryCreditCard.charge method flawed?
+
+public boolean charge(double price) {
+  boolean isSuccess = super.charge(price);
+    if (!isSuccess)
+      super.charge(5); // the penalty
+  return isSuccess;
+}
+
 >Changing the superclass instance variable balance modifier assessor to private will not cause compile time error,
 because charge's PredatoryCreditCard class method make a call to the superclass CreditCard method instead of trying access it directly.
 On the other hand it will cause not a compile time error nor runtime exception but will not perform any charge after the limit is reached.
