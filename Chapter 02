@@ -41,4 +41,19 @@ public boolean charge(double price) {
 
 >Changing the superclass instance variable balance modifier assessor to private will not cause compile time error,
 because charge's PredatoryCreditCard class method make a call to the superclass CreditCard method instead of trying access it directly.
-On the other hand it will cause not a compile time error nor runtime exception but will not perform any charge after the limit is reached.
+On the other hand it will cause not a compile time error nor runtime exception but will not perform any charge 
+after the limit is reached.
+
+
+R-2.6 Give a short fragment of Java code that uses the progression classes from Section 2.2.3 
+to find the eighth value of a Fibonacci progression that starts with 2
+and 2 as its first two values.
+
+prog = new FibonacciProgression(2, 2);
+
+
+If we choose an increment of 128, how many calls to the nextValue method from
+the ArithmeticProgression class of Section 2.2.3 can we make before we cause a
+long-integer overflow?
+
+> 128^8 or 2^56 calls to nextValue before cause a long-integer overvflow.
