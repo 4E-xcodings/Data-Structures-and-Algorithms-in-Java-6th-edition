@@ -57,3 +57,36 @@ the ArithmeticProgression class of Section 2.2.3 can we make before we cause a
 long-integer overflow?
 
 > 128^8 or 2^56 calls to nextValue before cause a long-integer overvflow.
+
+
+R-2.8 Can two interfaces mutually extend each other? Why or why not?
+
+> No. Cuz it will cause and cyclic inheritance invovlving compile time error.
+
+
+R-2.9 What are some potential efficiency disadvantages of having very deep inheritance
+trees, that is, a large set of classes, A, B, C, and so on, such that B extends A, C
+extends B, D extends C, etc.?
+
+The real question is what is the right level of abstractions to use. 
+This is what impacts developer efficiency which is the most important thing to consider in 99% of cases. 
+Any assumptions you make about the efficiency of how the code runs is likely to be either a) not make much difference 
+or b) wrong or c) out of date in a future version of the JVM.
+
+The most important CPU performance to worry about is time complexity, 
+but more often it is developer efficiency which will cost you the most in the long run.
+
+>The only efficiency problems for a deep inheritance tree that I can see 
+is that super may be called many times over in a deep inheritance tree when calling the constructor for the deepest class.
+
+The JVM supports aggressive inlining. 
+Within reason the number of times you call super doesn't matter especially if you don't add methods which add no value.
+
+>Also, if there is a method signature that is overridden in each class, 
+the compiler will take longer to sort out or determine which method is overridden.
+
+While this is true, the time the compiler spends compiling the code is unlikely to be important. If you have G extends F extends E extends D extends C extends B extends A the only methdos which call super are the ones you add. i.e. the more levels you add the less like you need to override a method at every level. The JIT can also inline all these methods so it as if there was no calls from a performance point of view.
+
+>So a bunch of classes extending one class becomes disorganized.
+
+This is very important. It lowers the efficiency of your developers and their ability to optimise the code. i.e. it can be less performant because it is harder to optimise.
