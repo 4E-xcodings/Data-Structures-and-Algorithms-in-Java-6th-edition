@@ -85,8 +85,25 @@ Within reason the number of times you call super doesn't matter especially if yo
 >Also, if there is a method signature that is overridden in each class, 
 the compiler will take longer to sort out or determine which method is overridden.
 
-While this is true, the time the compiler spends compiling the code is unlikely to be important. If you have G extends F extends E extends D extends C extends B extends A the only methdos which call super are the ones you add. i.e. the more levels you add the less like you need to override a method at every level. The JIT can also inline all these methods so it as if there was no calls from a performance point of view.
+While this is true, the time the compiler spends compiling the code is unlikely to be important. 
+If you have G extends F extends E extends D extends C extends B extends A the only methdos which call super are the ones you add.
+i.e. the more levels you add the less like you need to override a method at every level. 
+The JIT can also inline all these methods so it as if there was no calls from a performance point of view.
 
 >So a bunch of classes extending one class becomes disorganized.
 
 This is very important. It lowers the efficiency of your developers and their ability to optimise the code. i.e. it can be less performant because it is harder to optimise.
+
+
+
+R-2.10 What are some potential efficiency disadvantages of having very shallow inheritance trees,
+that is, a large set of classes, A, B, C, and so on, such that all of these
+classes extend a single class, Z?
+
+>Removing or swapping out a superclass will usually break subclasses. 
+Subclasses are entirely dependant on their superclass to function effectively.
+It's inflexible. You are burdened by methods and behavior defined in a more general superclass, 
+making down-the-line changes and customization difficult. 
+Decisions made early on haunt the entire class hierarchy. See the fragile base class problem.
+So, you would at some time think that is a good idea to make some modifications, upgrades to a specific method,
+but it may cause some unstable behavior for the mojority of the subclasses.
