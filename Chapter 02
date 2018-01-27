@@ -107,3 +107,54 @@ making down-the-line changes and customization difficult.
 Decisions made early on haunt the entire class hierarchy. See the fragile base class problem.
 So, you would at some time think that is a good idea to make some modifications, upgrades to a specific method,
 but it may cause some unstable behavior for the mojority of the subclasses.
+
+
+
+R-2.11 Consider the following code fragment, taken from some package:
+public class Maryland extends State {
+Maryland() { /∗ null constructor ∗/ }
+public void printMe() { System.out.println("Read it."); }
+public static void main(String[ ] args) {
+Region east = new State();
+State md = new Maryland();
+Object obj = new Place();
+Place usa = new Region();
+md.printMe();
+east.printMe();
+((Place) obj).printMe();
+obj = md;
+((Maryland) obj).printMe();
+obj = usa;
+((Place) obj).printMe();
+usa = md;
+((Place) usa).printMe();
+}
+}
+class State extends Region {
+State() { /∗ null constructor ∗/ }
+public void printMe() { System.out.println("Ship it."); }
+}
+class Region extends Place {
+Region() { /∗ null constructor ∗/ }
+public void printMe() { System.out.println("Box it."); }
+}
+class Place extends Object {
+Place() { /∗ null constructor ∗/ }
+public void printMe() { System.out.println("Buy it."); }
+}
+What is the output from calling the main() method of the Maryland class?
+
+> Read it.
+  Ship it.
+  Buy it.
+  Read it.
+  Box it.
+  Read it.
+  
+  
+  
+  R-2.13 Consider the inheritance of classes from Exercise R-2.12, and let d be an object
+variable of type Horse. If d refers to an actual object of type Equestrian, can it
+be cast to the class Racer? Why or why not?
+
+> Yes, it can be cast just because
