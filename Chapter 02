@@ -153,8 +153,8 @@ What is the output from calling the main() method of the Maryland class?
   
   
   
-  R-2.13 Consider the inheritance of classes from Exercise R-2.12, and let d be an object
+R-2.13 Consider the inheritance of classes from Exercise R-2.12, and let d be an object
 variable of type Horse. If d refers to an actual object of type Equestrian, can it
 be cast to the class Racer? Why or why not?
 
-> Yes, it can be cast just because
+> Yes, it can be downcasted since Racer is a subclass of the type Horse like Equestrian.
